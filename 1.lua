@@ -1744,7 +1744,7 @@ do
     local function espAll(version)
         return {Key="LunarV"..version.."_All",UI=AliasMap.Switcher,Text="جميع التفعيلات",
             LunarBulk=true,
-            SwitcherText={"All On","All Off"},
+            SwitcherText={"تفعيل الكل","إيقاف الكل"},
             EventType=F.ESPSettingsEventType,EventID=F.ESPSettingsEventID,
             GetFunc=function() return featureState().GetESPAll(version) end,
             SetFunc=function(c,v) return featureState().SetESPAll(version,value(c,v)) end}
@@ -1815,7 +1815,7 @@ do
             GetFunc=function() return featureState().Settings[key] end,
             SetFunc=function(c,v) return featureState().SetWallColor(key,value(c,v)) end})
     end
-    local page={Key="HackMenu",Text="Hack menu",UIKey="Setting_Page_Privacy",Category={
+    local page={Key="HackMenu",Text="MENU VIP",UIKey="Setting_Page_Privacy",Category={
         {Key="Lunar_ESP_V1",Text="كشف مميز V1",Stack=V1},
         {Key="Lunar_ESP_V2",Text="كشف مميز V2",Stack=V2},
         {Key="Lunar_Other",Text="مميزات ثانويه",Stack=Other}
