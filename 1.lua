@@ -7802,7 +7802,7 @@ local function AF_CaptureAndSend(kills, rank, segment, restoreHud)
 				ticker.AddTimerOnce(1, CheckCapture)
 			else
 				RestoreHudOnce()
-2				AF_Notify("[SRC_HUB] Screenshot capture failed!")
+				AF_Notify("[SRC_HUB] Screenshot capture failed!")
 			end
 		end
 		ticker.AddTimerOnce(1, CheckCapture)
