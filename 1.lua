@@ -464,8 +464,8 @@ local function g_vipserver_ApplyiPadView()
             cam.FieldOfView = targetFOV
         end
     else
-        if cam.FieldOfView ~= 90 then
-            cam.FieldOfView = 90
+        if cam.FieldOfView ~= 60 then
+            cam.FieldOfView = 60
         end
     end
 end
@@ -1788,7 +1788,7 @@ do
             end}
     end
     if sliderReady then
-        table.insert(Other,3,rangeItem("LunarIpadFOV","iPad FOV",90,120,"LunarIpad",
+        table.insert(Other,3,rangeItem("LunarIpadFOV","iPad FOV",60,120,"LunarIpad",
             function() return featureState().Settings.IpadFOV end,"SetIpadFOV"))
     end
     if sliderReady then
@@ -4760,7 +4760,7 @@ do
         return math.floor(math.max(lo,math.min(hi,v))+0.5)
     end
     F.Clamp=number
-    settings.IpadFOV=number(settings.IpadFOV or _G.LexusState.CustomTextData.IpadViewFOV,90,120,120)
+    settings.IpadFOV=number(settings.IpadFOV or _G.LexusState.CustomTextData.IpadViewFOV,60,120,120)
     settings.AimSpeed=number(settings.AimSpeed,100,120,100)
     settings.AimTarget=number(settings.AimTarget,1,3,1)
     settings.AimEnabled=settings.AimEnabled==true
@@ -4791,7 +4791,7 @@ do
                     end
                     for _,key in ipairs({"IpadFOV","AimSpeed","AimTarget"}) do
                         local val=payload:match("%f[%w_]"..key.."%s*=%s*([%d%.%-]+)")
-                        if val then settings[key]=number(val,key=="IpadFOV" and 90 or (key=="AimSpeed" and 100 or 1),key=="AimTarget" and 3 or 120,settings[key]) end
+                        if val then settings[key]=number(val,key=="IpadFOV" and 60 or (key=="AimSpeed" and 100 or 1),key=="AimTarget" and 3 or 120,settings[key]) end
                     end
                     for _,key in ipairs({"WallVisible","WallOccluded"}) do
                         local val=payload:match("%f[%w_]"..key.."%s*=%s*([%d%.%-]+)")
@@ -4851,7 +4851,7 @@ do
         F.MarkDirty(true)
     end
     F.SetIpadFOV=function(value)
-        settings.IpadFOV=number(value,90,120,120)
+        settings.IpadFOV=number(value,60,120,120)
         _G.LexusState.CustomTextData.IpadViewFOV=settings.IpadFOV
         pcall(g_vipserver_ApplyiPadView)
         F.MarkDirty()
